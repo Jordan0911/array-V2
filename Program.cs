@@ -7,11 +7,17 @@ namespace array_V2
         static void Main(string[] args)
         {
             int switcheroo = 0;
-            int n4=0;
+            int n4 = 0;
             int s = 0;
             Console.WriteLine("Enter lenght of first array ");
             int n1 = Convert.ToInt32(Console.ReadLine());
             int[] numbers = new int[n1];
+            Console.WriteLine("insert the digits of the first array");
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                numbers[i] = Convert.ToInt32(Console.ReadLine());
+
+            }
             Console.WriteLine("Enter lenght of second array ");
             int n2 = Convert.ToInt32(Console.ReadLine());
             int[] numbers2 = new int[n2];
@@ -21,19 +27,10 @@ namespace array_V2
                 n2= n1;
                 n1 = switcheroo;
             }
-            Console.WriteLine("insert the digits of the first array");
-
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                numbers[i] = Convert.ToInt32(Console.ReadLine());
-
-            }
             Console.WriteLine("insert the digits of the second array");
-
             for (int i = 0; i < numbers2.Length; i++)
             {
                 numbers2[i] = Convert.ToInt32(Console.ReadLine());
-
             }
             //first exercise
             int t = 0;
@@ -61,13 +58,29 @@ namespace array_V2
                     s = 0;
                 }
                 if (numbers[s] == numbers2[i])
-                {
-                    n4++;
-
+                { 
+                    n4++
                 }
                 s++;
             }
-
+            int[] intersection = new int[n4];
+            for (int i = 0; i < intersection.Length; i++)
+            {
+                if (s == n1)
+                {
+                    s = 0;
+                }
+                if (numbers[s] == numbers2[i])
+                {
+                    intersection[i]= numbers[i];
+                }
+                s++;
+            }
+        Console.WriteLine("the intersection is :");
+            for (int i = 0; i < intersection.Length; i++)
+            {
+                Console.WriteLine($"[ {intersection[i]} ]");
+            }
         }
     }
 }
